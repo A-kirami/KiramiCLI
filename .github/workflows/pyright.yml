@@ -1,0 +1,31 @@
+name: Pyright Lint
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    paths:
+      - kirami_cli/**
+      - pyproject.toml
+
+jobs:
+  pyright:
+    name: Pyright Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pdm-project/setup-pdm@v3
+        with:
+          python-version: '3.10'
+          cache: true
+
+      - name: Install dependencies
+        run: pdm install
+
+      - name: Add pdm to PATH
+        run: echo "$(pdm venv --path in-project)/bin" >> $GITHUB_PATH
+
+      - name: Run Pyright
+        uses: jakebailey/pyright-action@v1

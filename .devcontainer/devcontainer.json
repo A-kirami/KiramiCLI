@@ -1,0 +1,40 @@
+{
+    "name": "Kirami CLI",
+    "image": "mcr.microsoft.com/devcontainers/python:1-3.10-bullseye",
+    "features": {
+        "ghcr.io/devcontainers-contrib/features/pdm:2": {}
+    },
+    "postCreateCommand": "pdm install",
+    "customizations": {
+        "codespaces": {
+            "openFiles": [
+                "README.md"
+            ]
+        },
+        "vscode": {
+            "settings": {
+                "python.analysis.diagnosticMode": "workspace",
+                "python.analysis.typeCheckingMode": "basic",
+                "[python]": {
+                    "editor.defaultFormatter": "ms-python.black-formatter",
+                    "editor.codeActionsOnSave": {
+                        "source.fixAll": true,
+                        "source.organizeImports": true
+                    }
+                },
+                "files.exclude": {
+                    "**/__pycache__": true
+                },
+                "files.watcherExclude": {
+                    "**/__pycache__": true
+                }
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-python.black-formatter",
+                "charliermarsh.ruff"
+            ]
+        }
+    }
+}

@@ -1,0 +1,6 @@
+[project]
+name = "{{ cookiecutter.kiramibot.project_name }}"
+version = "0.0.0"
+description = "{{ cookiecutter.computed.project_desc }}"
+readme = "README.md"
+requires-python = ">=3.10, <4.0"

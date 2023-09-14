@@ -1,0 +1,14 @@
+[bot]
+{% if cookiecutter.kiramibot.drivers -%}
+driver = "{{ cookiecutter.kiramibot.drivers.values()|map(attribute='module_name')|join('+') }}"
+{% endif -%}
+
+adapters = [
+{%- for adapter in cookiecutter.kiramibot.adapters.values() %}
+    "{{ adapter.module_name|replace('nonebot.adapters.', '~') }}",
+{%- endfor %}
+]
+
+[plugin]
+plugins = []
+plugin_dirs=[]

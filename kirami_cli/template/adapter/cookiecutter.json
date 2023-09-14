@@ -1,0 +1,4 @@
+{
+  "adapter_name": "AwesomeAdapter",
+  "adapter_slug": "{{ cookiecutter.adapter_name|lower|replace(' ', '-')|replace('-', '_') }}"
+}

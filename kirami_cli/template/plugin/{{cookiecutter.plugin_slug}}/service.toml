@@ -1,0 +1,10 @@
+[plugin]
+name = "{{cookiecutter.plugin_name}}"
+summary = ""
+version = "0.0.0"
+author = ""
+usage=""
+{% if cookiecutter.sub_plugin %}
+[extra]
+subplugin_dirs = ["plugins"]
+{% endif -%}

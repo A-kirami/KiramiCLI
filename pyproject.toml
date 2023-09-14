@@ -1,0 +1,81 @@
+[project]
+name = "kirami-cli"
+version = "0.0.0"
+description = "CLI for KiramiBot"
+authors = [{ name = "Akirami", email = "akiramiaya@outlook.com" }]
+requires-python = ">=3.10,<4.0"
+readme = "README.md"
+license = { text = "MIT" }
+keywords = ["kirami", "bot", "chatbot", "onebot"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: Robot Framework",
+    "Framework :: Robot Framework :: Library",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    "click>=8.1.7",
+    "anyio>=4.0.0",
+    "httpx>=0.25.0",
+    "jinja2>=3.1.2",
+    "cashews>=6.2.0",
+    "wcwidth>=0.2.6",
+    "tomlkit>=0.12.1",
+    "pydantic>=2.3.0",
+    "watchfiles>=0.20.0",
+    "cookiecutter>=2.3.0",
+    "virtualenv>=20.24.5",
+    "typing-extensions>=4.7.1",
+    "noneprompt>=0.1.9",
+    "pyfiglet>=1.0.1",
+    "ruamel-yaml>=0.17.32",
+]
+
+[project.urls]
+homepage = "https://cli.kiramibot.dev/"
+repository = "https://github.com/A-kirami/KiramiCLI"
+
+[project.scripts]
+kirami = "kirami_cli.__main__:main"
+
+[tool.black]
+extend-exclude = '''
+^kirami_cli/template/
+'''
+
+[tool.ruff]
+select = ["E", "W", "F", "UP", "C", "T", "PT", "Q"]
+ignore = ["E402", "E501", "C901", "UP037"]
+extend-exclude = ["kirami_cli/template/"]
+
+[tool.pyright]
+typeCheckingMode = "basic"
+pythonPlatform = "All"
+exclude = ["**/.*", "kirami_cli/template/"]
+
+[tool.pdm.dev-dependencies]
+i18n = [
+    "babel>=2.12.1",
+]
+
+[tool.pdm.scripts]
+extract = "pybabel extract -o messages.pot --project kirami-cli --version 1.0.0 kirami_cli/"
+_init = "pybabel init -D kirami-cli -i messages.pot -d kirami_cli/locale/ -l {args}"
+init = { composite = ["extract", "_init {args}"] }
+_update = "pybabel update -D kirami-cli -i messages.pot -d kirami_cli/locale/"
+update = { composite = ["extract", "_update"] }
+compile = "pybabel compile -D kirami-cli -d kirami_cli/locale/"
+
+[tool.pdm.build]
+setup-script = "build.py"
+run-setuptools = false
+
+[build-system]
+requires = ["pdm-backend", "babel>=2.12"]
+build-backend = "pdm.backend"

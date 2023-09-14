@@ -1,0 +1,12 @@
+{
+  "kiramibot": {
+    "project_name": "AwesomeBot",
+    "drivers": "",
+    "adapters": ""
+  },
+  "computed": {
+    "project_slug": "{{ cookiecutter.kiramibot.project_name|replace(' ', '-') }}",
+    "project_desc": "{{ cookiecutter.kiramibot.project_name }}"
+  },
+  "_extensions": ["kirami_cli.extensions.UnJsonifyExtension"]
+}

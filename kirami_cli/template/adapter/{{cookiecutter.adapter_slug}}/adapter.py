@@ -1,0 +1,40 @@
+from typing import Any
+from typing_extensions import override
+
+from nonebot.exception import WebSocketClosed
+from nonebot.utils import DataclassEncoder, escape_tag
+from nonebot.drivers import (
+    URL,
+    Driver,
+    Request,
+    Response,
+    WebSocket,
+    ForwardDriver,
+    ReverseDriver,
+    HTTPServerSetup,
+    WebSocketServerSetup,
+)
+
+from nonebot.adapters import Adapter as BaseAdapter
+
+from .bot import Bot
+from .event import Event
+from .config import Config
+from .message import Message, MessageSegment
+
+
+class Adapter(BaseAdapter):
+
+    @override
+    def __init__(self, driver: Driver, **kwargs: Any):
+        super().__init__(driver, **kwargs)
+        self.adapter_config = Config.parse_obj(self.config)
+
+    @classmethod
+    @override
+    def get_name(cls) -> str:
+        ...
+
+    @override
+    async def _call_api(self, bot: Bot, api: str, **data: Any) -> Any:
+        ...
