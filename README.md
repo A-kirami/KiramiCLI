@@ -76,8 +76,7 @@ pipx install kirami-cli
 kirami --help
 ```
 
-> **Warning**
->
+> [!WARNING]
 > 如果找不到 `kirami` 命令，请尝试 `pipx ensurepath` 来添加路径到环境变量
 
 - `kirami create (init)` 创建新的 KiramiBot 项目
