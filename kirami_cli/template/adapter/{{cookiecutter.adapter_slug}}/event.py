@@ -7,7 +7,6 @@ from .message import Message
 
 
 class Event(BaseEvent):
-
     @override
     def get_type(self) -> str:
         raise NotImplementedError

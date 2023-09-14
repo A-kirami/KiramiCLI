@@ -24,7 +24,6 @@ from .message import Message, MessageSegment
 
 
 class Adapter(BaseAdapter):
-
     @override
     def __init__(self, driver: Driver, **kwargs: Any):
         super().__init__(driver, **kwargs)

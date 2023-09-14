@@ -8,7 +8,6 @@ from .message import Message, MessageSegment
 
 
 class Bot(BaseBot):
-
     @override
     async def send(
         self,

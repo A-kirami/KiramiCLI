@@ -1,11 +1,13 @@
 from typing import Type, Union, Mapping, Iterable
 from typing_extensions import override
 
-from nonebot.adapters import Message as BaseMessage, MessageSegment as BaseMessageSegment
+from nonebot.adapters import (
+    Message as BaseMessage,
+    MessageSegment as BaseMessageSegment,
+)
 
 
 class MessageSegment(BaseMessageSegment["Message"]):
-
     @classmethod
     @override
     def get_message_class(cls) -> Type["Message"]:
@@ -21,7 +23,6 @@ class MessageSegment(BaseMessageSegment["Message"]):
 
 
 class Message(BaseMessage[MessageSegment]):
-
     @classmethod
     @override
     def get_segment_class(cls) -> Type[MessageSegment]:
