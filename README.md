@@ -58,17 +58,39 @@
 - 从 NoneBot2 迁移到 KiramiBot
 - 支持 CLI 插件和运行脚本
 
-## 使用
+## 安装
 
-完整使用文档请参考 [文档](https://cli.kiramibot.dev/)。
+### 推荐安装方式
 
-### 安装
+#### Linux, macOS, Windows (WSL)
 
-使用 pipx 安装
+```bash
+curl -sSL https://install.kiramibot.dev | python3 -
+```
+
+#### Windows (Powershell)
+
+```powershell
+(Invoke-WebRequest -Uri https://install.kiramibot.dev -UseBasicParsing).Content | py -
+```
+
+### 其他安装方式
+
+#### pipx
 
 ```shell
 pipx install kirami-cli
 ```
+
+#### pip
+
+```shell
+pip install --user kirami-cli
+```
+
+## 使用
+
+完整使用说明请参考 [文档](https://cli.kiramibot.dev/)。
 
 ### 命令行使用
 
