@@ -13,18 +13,15 @@ T = TypeVar("T", Adapter, Plugin, Driver)
 
 
 @overload
-async def load_module_data(module_type: Literal["adapter"]) -> list[Adapter]:
-    ...
+async def load_module_data(module_type: Literal["adapter"]) -> list[Adapter]: ...
 
 
 @overload
-async def load_module_data(module_type: Literal["plugin"]) -> list[Plugin]:
-    ...
+async def load_module_data(module_type: Literal["plugin"]) -> list[Plugin]: ...
 
 
 @overload
-async def load_module_data(module_type: Literal["driver"]) -> list[Driver]:
-    ...
+async def load_module_data(module_type: Literal["driver"]) -> list[Driver]: ...
 
 
 @cache(ttl=None)

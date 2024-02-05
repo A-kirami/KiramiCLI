@@ -14,5 +14,4 @@ class Bot(BaseBot):
         event: Event,
         message: Union[str, Message, MessageSegment],
         **kwargs,
-    ) -> Any:
-        ...
+    ) -> Any: ...
