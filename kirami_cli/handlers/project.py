@@ -33,16 +33,14 @@ def create_project(
 
 @cache
 def generate_run_script() -> str:
-    return dedent(
-        """\
+    return dedent("""\
         from kirami import KiramiBot
 
         bot = KiramiBot()
 
         if __name__ == "__main__":
             bot.run()
-        """
-    )
+        """)
 
 
 @requires_project_root

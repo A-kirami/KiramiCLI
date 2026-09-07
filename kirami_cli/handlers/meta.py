@@ -47,7 +47,7 @@ def get_project_root(cwd: Path | None = None) -> Path:
 
 
 def requires_project_root(
-    func: Callable[P, Coroutine[Any, Any, R]]
+    func: Callable[P, Coroutine[Any, Any, R]],
 ) -> Callable[P, Coroutine[Any, Any, R]]:
     @wraps(func)
     async def wrapper(*args: P.args, **kwargs: P.kwargs) -> R:
@@ -110,7 +110,7 @@ async def get_python_version(
 
 
 def requires_python(
-    func: Callable[P, Coroutine[Any, Any, R]]
+    func: Callable[P, Coroutine[Any, Any, R]],
 ) -> Callable[P, Coroutine[Any, Any, R]]:
     @wraps(func)
     async def wrapper(*args: P.args, **kwargs: P.kwargs) -> R:
@@ -151,7 +151,7 @@ async def get_kiramibot_version(
 
 
 def requires_kiramibot(
-    func: Callable[P, Coroutine[Any, Any, R]]
+    func: Callable[P, Coroutine[Any, Any, R]],
 ) -> Callable[P, Coroutine[Any, Any, R]]:
     @wraps(func)
     @requires_python
@@ -188,7 +188,7 @@ async def get_pip_version(
 
 
 def requires_pip(
-    func: Callable[P, Coroutine[Any, Any, R]]
+    func: Callable[P, Coroutine[Any, Any, R]],
 ) -> Callable[P, Coroutine[Any, Any, R]]:
     @wraps(func)
     @requires_python
